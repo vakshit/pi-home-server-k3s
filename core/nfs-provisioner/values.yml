@@ -1,0 +1,3 @@
+nfs:
+  server: p4-1
+  path: /mnt/hdd
