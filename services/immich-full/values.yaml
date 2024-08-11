@@ -1,0 +1,29 @@
+# Default values for immich-full.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+immich:
+  image:
+    tag: v1.111.0
+  
+  immich:
+    persistence:
+      library:
+        existingClaim: immich-lib
+
+pvc1:
+  name: immich-lib
+  storageClassName: nfs-client
+  accessMode: ReadWriteMany
+  storage: 10Gi
+
+
